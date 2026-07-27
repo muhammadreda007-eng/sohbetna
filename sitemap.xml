@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://example.com/</loc></url>
-  <url><loc>https://example.com/about.html</loc></url>
-  <url><loc>https://example.com/features.html</loc></url>
-  <url><loc>https://example.com/rooms.html</loc></url>
-  <url><loc>https://example.com/download.html</loc></url>
-  <url><loc>https://example.com/news.html</loc></url>
-  <url><loc>https://example.com/news-details.html</loc></url>
-  <url><loc>https://example.com/support.html</loc></url>
-  <url><loc>https://example.com/contact.html</loc></url>
-  <url><loc>https://example.com/faq.html</loc></url>
-  <url><loc>https://example.com/community-guidelines.html</loc></url>
-  <url><loc>https://example.com/safety.html</loc></url>
-  <url><loc>https://example.com/privacy-policy.html</loc></url>
-  <url><loc>https://example.com/terms.html</loc></url>
-  <url><loc>https://example.com/delete-account.html</loc></url>
-  <url><loc>https://example.com/waitlist.html</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/about</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/features</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/rooms</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/download</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/news</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/support</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/contact</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/faq</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/community-guidelines</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/safety</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/privacy-policy</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/terms</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/delete-account</loc></url>
+  <url><loc>https://sohbetna.muhammadreda007.workers.dev/waitlist</loc></url>
 </urlset>

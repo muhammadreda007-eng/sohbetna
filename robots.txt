@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://sohbetna.muhammadreda007.workers.dev/sitemap.xml
