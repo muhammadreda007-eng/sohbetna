@@ -4,5 +4,6 @@ assets/js/env.js
 !.env.example
 node_modules/
 dist/
+.backups/
 .DS_Store
 Thumbs.db
