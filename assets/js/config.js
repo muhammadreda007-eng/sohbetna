@@ -4,7 +4,7 @@
   window.AppConfig = {
     brand: {
       appName: "SOHBETNA | صٌحبتنا",
-      taglineAr: "شات صوتي ومرئي ولايفات",
+      taglineAr: "الصحبة تبدأ من هنا",
       taglineEn: "Voice, video chat, and live rooms",
       shortDescriptionAr: "منصة اجتماعية مستقبلية لغرف الصوت والفيديو والبث المباشر.",
       shortDescriptionEn: "A future social platform for voice rooms, video chat, and live streams.",
@@ -44,30 +44,75 @@
       promoVideoPoster: "assets/images/placeholders/video-poster.svg"
     },
     stats: [
-      { key: "rooms", labelAr: "غرف قابلة للإطلاق", labelEn: "Configurable rooms", valueAr: "من لوحة التحكم", valueEn: "From dashboard" },
-      { key: "platforms", labelAr: "Android و iOS", labelEn: "Android and iOS", valueAr: "جاهز للروابط", valueEn: "Links ready" },
-      { key: "security", labelAr: "حماية البيانات", labelEn: "Data safety", valueAr: "Supabase RLS", valueEn: "Supabase RLS" }
+      { key: "rooms", labelAr: "لايفات صوتية ومرئية", labelEn: "Voice, video, and live", valueAr: "غرف على مزاجك", valueEn: "Rooms you will love" },
+      { key: "platforms", labelAr: "صوت نقي وفيديو HD", labelEn: "Clear audio and HD video", valueAr: "جودة عالية", valueEn: "Clearer quality" },
+      { key: "security", labelAr: "عبّر بطريقتك", labelEn: "Express yourself", valueAr: "هدايا وتفاعل", valueEn: "Gifts and reactions" }
     ],
-    features: [
-      { icon: "صوت", titleAr: "غرف صوتية", titleEn: "Voice rooms", textAr: "غرف محادثة صوتية مع مايكات متعددة وإدارة واضحة.", textEn: "Audio chat rooms with multiple microphones and room controls." },
-      { icon: "Live", titleAr: "بث مباشر", titleEn: "Live streams", textAr: "مساحات لايف للفيديو والصوت مناسبة للمجتمع والترفيه.", textEn: "Live video and audio spaces for communities and entertainment." },
-      { icon: "HD", titleAr: "فيديو وصوت HD", titleEn: "HD audio and video", textAr: "تصميم يعرض جودة التجربة دون ادعاء أرقام غير مؤكدة.", textEn: "A clear way to present quality without unsupported claims." },
-      { icon: "Mic", titleAr: "مايكات متعددة", titleEn: "Multi mic", textAr: "إمكانية إبراز أماكن المتحدثين داخل الغرف.", textEn: "Room layouts that can highlight several speakers." },
-      { icon: "Gift", titleAr: "هدايا رقمية", titleEn: "Digital gifts", textAr: "مكان منظم لشرح Coins والهدايا عند إطلاق التطبيق.", textEn: "A structured place for coins and digital gifts." },
-      { icon: "VIP", titleAr: "غرف VIP", titleEn: "VIP rooms", textAr: "باقات قابلة للتعديل من الإعدادات ولوحة التحكم.", textEn: "Editable room packages controlled from settings." },
-      { icon: "أمان", titleAr: "حماية وخصوصية", titleEn: "Safety and privacy", textAr: "صفحات سياسات وRLS لحماية بيانات الزوار والإدارة.", textEn: "Policy pages and RLS-ready data protection." },
-      { icon: "Follow", titleAr: "أصدقاء ومتابعة", titleEn: "Friends and follows", textAr: "شرح واضح لتجربة اجتماعية ستكتمل في التطبيق.", textEn: "A clear description of the future social experience." }
-    ],
+features: [
+  {
+    icon: "صوت",
+    titleAr: "غرف على مزاجك",
+    titleEn: "Rooms for every mood",
+    textAr: "قعدة هادية، نقاش، ضحك أو سهر لحد الصبح.",
+    textEn: "Chill, talk, laugh, or stay up together."},
+  {
+    icon: "Live",
+    titleAr: "افتح لايفك",
+    titleEn: "Go live",
+    textAr: "شارك لحظتك بالصوت أو الفيديو والناس تدخل معاك.",
+    textEn: "Share the moment by voice or video."},
+  {
+    icon: "HD",
+    titleAr: "صورة وصوت واضح",
+    titleEn: "Clear audio and video",
+    textAr: "تجربة مريحة تخليك مركز في الكلام والناس.",
+    textEn: "A clear experience that keeps you in the moment."},
+  {
+    icon: "Mic",
+    titleAr: "المايك دورك",
+    titleEn: "Take the mic",
+    textAr: "اطلع واتكلم، أو خليك مستمع لحد ما تحب تشارك.",
+    textEn: "Speak up or listen until you are ready."},
+  {
+    icon: "Gift",
+    titleAr: "هدايا تقول اللي جواك",
+    titleEn: "Send a gift",
+    textAr: "عبّر عن إعجابك بهدية تخلي اللحظة أحلى.",
+    textEn: "Make the moment better with a digital gift."},
+  {
+    icon: "VIP",
+    titleAr: "مزايا VIP",
+    titleEn: "VIP benefits",
+    textAr: "ظهور أقوى، شارة مميزة ومزايا بتزيد مع مستواك.",
+    textEn: "Stand out with a badge and level-based benefits."},
+  {
+    icon: "أمان",
+    titleAr: "خصوصيتك في إيدك",
+    titleEn: "You control your privacy",
+    textAr: "اختار مين يتواصل معاك وتحكّم في تجربتك براحتك.",
+    textEn: "Choose who can reach you and stay in control."},
+  {
+    icon: "Follow",
+    titleAr: "ناس ترجع لهم",
+    titleEn: "People worth following",
+    textAr: "تابع الناس اللي ارتحت لهم وقابلهم تاني بسهولة.",
+    textEn: "Follow people you enjoy and meet them again."}
+],
     roomPackages: [
       { type: "standard", nameAr: "الغرفة العادية", nameEn: "Standard room", coins: 1000, price: 1000, currency: "EGP", durationDays: 45, featured: false, featuresAr: ["ظهور أساسي", "مدة شهر ونصف", "إعدادات قابلة للتعديل"], featuresEn: ["Basic visibility", "45 days", "Editable settings"] },
       { type: "premium", nameAr: "الغرفة المميزة", nameEn: "Premium room", coins: 3000, price: 1750, currency: "EGP", durationDays: 45, featured: true, featuresAr: ["ظهور أعلى", "مزايا إدارة إضافية", "قابلة للتحديث من لوحة التحكم"], featuresEn: ["Higher visibility", "Extra moderation tools", "Dashboard editable"] },
       { type: "vip", nameAr: "غرفة VIP", nameEn: "VIP room", coins: 5000, price: 2500, currency: "EGP", durationDays: 45, featured: false, featuresAr: ["أولوية في العرض", "تجربة خاصة", "مدة قابلة للتعديل"], featuresEn: ["Priority placement", "Private experience", "Editable duration"] }
     ],
+
     screenshots: [
-      { titleAr: "واجهة الغرف", titleEn: "Rooms screen", textAr: "Placeholder واضح لصورة موبايل.", textEn: "Clear placeholder for a mobile screenshot.", image: "assets/images/screenshots/screen-rooms.svg" },
-      { titleAr: "شاشة اللايف", titleEn: "Live screen", textAr: "مكان لصورة البث عند توفرها.", textEn: "A place for live stream imagery.", image: "assets/images/screenshots/screen-live.svg" },
-      { titleAr: "الملف الشخصي", titleEn: "Profile screen", textAr: "مكان لصورة الملف الشخصي.", textEn: "A place for the profile screen.", image: "assets/images/screenshots/screen-profile.svg" },
-      { titleAr: "الهدايا", titleEn: "Gifts screen", textAr: "مكان لصورة الهدايا والعملات.", textEn: "A place for gifts and coins.", image: "assets/images/screenshots/screen-gifts.svg" }
+      {titleAr: "اكتشف الغرف", titleEn: "Discover rooms", textAr: "تصفح الغرف واللايفات واختار القعدة المناسبة ليك.", textEn: "Browse rooms and live streams that match your mood.", image: "assets/images/screenshots/screen-rooms.png"},
+      {titleAr: "ابدأ لايف", titleEn: "Start a live", textAr: "شارك صوتك أو افتح الكاميرا وخلي الناس تدخل معاك.", textEn: "Go live by voice or video and invite people in.", image: "assets/images/screenshots/screen-live.png"},
+      {titleAr: "ملفك الشخصي", titleEn: "Your profile", textAr: "اعرض مستواك وشارتك وكل التفاصيل اللي تميز حسابك.", textEn: "Show your level, badge, and profile highlights.", image: "assets/images/screenshots/screen-profile.png"},
+      {titleAr: "الهدايا", titleEn: "Gifts", textAr: "ابعث هدية لصاحبك وخلي اللحظة ليها طعم تاني.", textEn: "Send gifts and make every moment more memorable.", image: "assets/images/screenshots/screen-gifts.png"},
+      {titleAr: "ملفاتي", titleEn: "My files", textAr: "تابع صورك وملفاتك من مكان واحد مرتب وواضح.", textEn: "Keep your images and files organized in one place.", image: "assets/images/screenshots/screen-files.png"},
+      {titleAr: "لوحة الإدارة", titleEn: "Admin dashboard", textAr: "إدارة الأخبار والرسائل والمستخدمين من لوحة واحدة.", textEn: "Manage news, messages, and users from one dashboard.", image: "assets/images/screenshots/screen-admin.png"},
+      {titleAr: "حساب المالك", titleEn: "Owner account", textAr: "صلاحيات كاملة لمتابعة التطبيق وإدارة إعداداته.", textEn: "Full access to monitor the app and manage its settings.", image: "assets/images/screenshots/screen-owner.png"}
+   
     ],
     faqs: [
       { questionAr: "هل الموقع هو تطبيق الشات نفسه؟", questionEn: "Is this the chat app itself?", answerAr: "لا. هذا موقع دعائي وإداري، أما تطبيق الشات واللايف فسيكون له Backend مستقل مستقبلًا.", answerEn: "No. This is a marketing and admin website; the chat/live app will have a separate backend later." },

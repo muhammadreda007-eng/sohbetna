@@ -26,7 +26,7 @@
   radial-gradient(circle at 80% 12%, rgba(0, 169, 157, 0.18), transparent 34%),
   linear-gradient(180deg, #f7fbff 0%, #edf8f7 100%); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr); gap: 54px; align-items: center; }
-.hero-copy h1 { max-width: 760px; font-size: clamp(2.25rem, 6vw, 5.4rem); line-height: 1.05; margin-block: 18px; }
+.hero-copy h1 { max-width: 760px; font-size: clamp(2.25rem, 4.4vw, 4.4rem); line-height: 1.1; margin-block: 18px; }
 .lead { font-size: clamp(1.05rem, 1.6vw, 1.28rem); color: var(--color-muted); max-width: 680px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 30px; }
 .metric-row { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -132,3 +132,735 @@
 .safety-band p, .safety-band span { color: #cbd5e1; }
 [dir="ltr"] .checked-list li { padding-inline-start: 0; padding-inline-end: 30px; }
 [dir="ltr"] .checked-list li::before { inset-inline-start: auto; inset-inline-end: 0; }
+/* SOHBETNA app screen inside the existing phone frame */
+.phone-shell {
+  padding: 0;
+}
+
+.phone-shell::before {
+  display: none;
+}
+
+.phone-app-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 32px;
+}
+/* Keep the full header visible while scrolling */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-header {
+  position: static;
+}
+/* Coin top-up packages */
+.coin-store-section {
+  background: #f4f8fc;
+}
+
+.coin-store-heading {
+  max-width: 720px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.coin-store-heading h2 {
+  margin-block: 8px;
+}
+
+.coin-store-heading > p:last-child {
+  color: var(--color-muted);
+}
+
+.coin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.coin-card {
+  position: relative;
+  min-height: 235px;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(20, 33, 61, 0.08);
+  text-align: center;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.coin-card:hover {
+  transform: translateY(-5px);
+  border-color: #00a99d;
+  box-shadow: 0 20px 42px rgba(20, 33, 61, 0.14);
+}
+
+.coin-icon {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 6px;
+  border: 3px solid #d89d12;
+  border-radius: 50%;
+  background: #f7c948;
+  color: #8b5e00;
+  box-shadow:
+    inset 0 0 0 4px #ffdd71,
+    0 8px 20px rgba(216, 157, 18, 0.22);
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.coin-amount {
+  color: var(--color-ink);
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.coin-label {
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+.coin-card small {
+  color: #008d83;
+  font-weight: 700;
+}
+
+.coin-price {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7fbff;
+  border: 1px solid #dce4ee;
+  border-radius: 6px;
+  color: var(--color-ink);
+  font-weight: 800;
+}
+
+.coin-price:empty::before {
+  content: "السعر يضاف لاحقًا";
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.coin-card-featured {
+  border: 2px solid #00a99d;
+  background: #f5fffd;
+}
+
+.coin-badge {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  padding: 6px 10px;
+  background: #ff5a6d;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.coin-notice {
+  margin-top: 22px;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .coin-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .coin-card {
+    min-height: 210px;
+    padding: 16px 12px;
+  }
+
+  .coin-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+  }
+
+  .coin-amount {
+    font-size: 1.35rem;
+  }
+}
+/* VIP and royal membership section */
+.membership-section {
+  background: #ffffff;
+}
+
+.membership-heading {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.membership-heading > p:last-child {
+  color: var(--color-muted);
+}
+
+.membership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.membership-card {
+  min-height: 410px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #dce4ee;
+  border-top: 4px solid #00a99d;
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(20, 33, 61, 0.08);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.membership-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 48px rgba(20, 33, 61, 0.14);
+}
+
+.royal-membership {
+  border-top-color: #d4a72c;
+}
+
+.membership-mark {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: #e8f8f6;
+  color: #008d83;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.royal-mark {
+  background: #fff6d8;
+  color: #9a7015;
+  font-size: 1.8rem;
+}
+
+.membership-card h3 {
+  margin-bottom: 8px;
+  font-size: 1.55rem;
+}
+
+.membership-card > p {
+  min-height: 58px;
+  color: var(--color-muted);
+}
+
+.membership-list {
+  display: grid;
+  gap: 12px;
+  margin-block: 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.membership-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.membership-list li::before {
+  content: "✓";
+  color: #00a99d;
+  font-weight: 800;
+}
+
+.royal-membership .membership-list li::before {
+  color: #b88618;
+}
+
+.membership-value {
+  min-height: 50px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7fbff;
+  border: 1px solid #dce4ee;
+  border-radius: 6px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.membership-value:empty::before {
+  content: "السعر يعلن قريبًا";
+  color: var(--color-muted);
+}
+
+.royal-value {
+  background: #fffaf0;
+  border-color: #ead9a7;
+}
+
+.membership-note {
+  margin-top: 22px;
+  padding: 18px;
+  background: #f4f8fc;
+  border-inline-start: 4px solid #00a99d;
+  border-radius: 6px;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .membership-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .membership-card {
+    min-height: auto;
+  }
+}
+/* Subtle VIP and Royal card backgrounds */
+.membership-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.membership-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.vip-membership {
+  background-color: #f7fffe;
+  background-image:
+    linear-gradient(rgba(0, 169, 157, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 169, 157, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.vip-membership::before {
+  content: "VIP";
+  position: absolute;
+  left: 32px;
+  top: 190px;
+  color: rgba(0, 141, 131, 0.13);
+  font-size: 8rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  line-height: 1;
+  transform: rotate(-15deg);
+  text-shadow: 0 12px 35px rgba(0, 169, 157, 0.1);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.royal-membership {
+  background-color: #fffdf7;
+  background-image:
+    linear-gradient(rgba(212, 167, 44, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 167, 44, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.royal-membership::before {
+  content: "♛";
+  position: absolute;
+  left: 58px;
+  top: 175px;
+  color: rgba(184, 134, 24, 0.15);
+  font-family: Georgia, serif;
+  font-size: 10rem;
+  line-height: 1;
+  transform: rotate(-15deg);
+  text-shadow: 0 12px 35px rgba(184, 134, 24, 0.12);
+  z-index: 0;
+  pointer-events: none;
+}
+/* Balanced section introductions */
+.coin-store-heading,
+.membership-heading {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(330px, 460px) minmax(180px, 1fr);
+  grid-template-areas: "note title label";
+  align-items: center;
+  gap: 32px;
+  max-width: none;
+  margin: 0 auto 30px;
+  padding: 22px 28px;
+  border-block: 1px solid rgba(20, 33, 61, 0.1);
+  text-align: initial;
+}
+
+.coin-store-heading .eyebrow,
+.membership-heading .eyebrow {
+  grid-area: label;
+  justify-self: center;
+  margin: 0;
+  padding: 8px 16px;
+  color: var(--color-primary-strong);
+  background: rgba(0, 169, 157, 0.08);
+  border-inline-start: 3px solid var(--color-primary);
+  font-weight: 800;
+}
+
+.coin-store-heading h2,
+.membership-heading h2 {
+  grid-area: title;
+  margin: 0;
+  text-align: center;
+  font-size: 2.35rem;
+  line-height: 1.15;
+}
+
+.coin-store-heading > p:last-child,
+.membership-heading > p:last-child {
+  grid-area: note;
+  justify-self: center;
+  max-width: 280px;
+  margin: 0;
+  color: var(--color-muted);
+  text-align: center;
+  line-height: 1.8;
+}
+
+@media (max-width: 800px) {
+  .coin-store-heading,
+  .membership-heading {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "label"
+      "title"
+      "note";
+    gap: 14px;
+    padding: 20px 12px;
+  }
+
+  .coin-store-heading h2,
+  .membership-heading h2 {
+    font-size: 1.8rem;
+  }
+}
+/* Refined coin package cards */
+.coin-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #f7fbfc;
+  border-color: rgba(0, 142, 132, 0.18);
+  box-shadow: 0 14px 30px rgba(20, 33, 61, 0.07);
+}
+
+.coin-card:nth-child(2n) {
+  background-color: #fffaf0;
+  border-color: rgba(220, 165, 35, 0.24);
+}
+
+.coin-card:nth-child(3n) {
+  background-color: #f6f4ff;
+  border-color: rgba(92, 82, 190, 0.18);
+}
+
+.coin-card::before {
+  content: "S";
+  position: absolute;
+  left: -12px;
+  bottom: -48px;
+  color: rgba(218, 165, 32, 0.07);
+  font-size: 10rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: rotate(-12deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.coin-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 169, 157, 0.5);
+  box-shadow: 0 20px 38px rgba(20, 33, 61, 0.12);
+}
+
+.coin-card-featured {
+  background-color: #edfffc;
+  border-color: #00a99d;
+  box-shadow: 0 18px 38px rgba(0, 169, 157, 0.14);
+}
+
+.coin-price {
+  background-color: rgba(255, 255, 255, 0.68);
+  border-color: rgba(20, 33, 61, 0.12);
+  backdrop-filter: blur(4px);
+}
+/* How-it-works interaction */
+.steps-list article {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.steps-list article:hover {
+  transform: translateX(-8px);
+  border-color: rgba(0, 169, 157, 0.42);
+  box-shadow: 0 16px 34px rgba(20, 33, 61, 0.11);
+}
+
+.steps-list article span {
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+.steps-list article:hover span {
+  transform: scale(1.08) rotate(-4deg);
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+@media (max-width: 800px) {
+  .steps-list article:hover {
+    transform: translateY(-4px);
+  }
+}
+.feature-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Screenshots heading in one balanced row */
+.screenshots-head {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(380px, 1.35fr) minmax(220px, 1fr);
+  grid-template-areas: "intro title eyebrow";
+  align-items: center;
+  gap: 28px;
+  margin-block-end: 32px;
+}
+
+.screenshots-head .eyebrow {
+  grid-area: eyebrow;
+  justify-self: center;
+  margin: 0;
+  padding: 8px 15px;
+  color: var(--color-primary-strong);
+  background: rgba(0, 169, 157, 0.09);
+  border: 1px solid rgba(0, 169, 157, 0.18);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.screenshots-head h2 {
+  grid-area: title;
+  justify-self: center;
+  max-width: 560px;
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.screenshots-intro {
+  grid-area: intro;
+  justify-self: center;
+  max-width: 300px;
+  margin: 0;
+  padding: 10px 16px;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+  border-inline-start: 3px solid rgba(0, 169, 157, 0.28);
+}
+
+/* Mobile returns to vertical layout */
+@media (max-width: 800px) {
+  .screenshots-head {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "eyebrow"
+      "title"
+      "intro";
+    gap: 12px;
+  }
+
+  .screenshots-head h2 {
+    font-size: 2rem;
+  }
+
+  .screenshots-intro {
+    border-inline-start: 0;
+  }
+}
+/* Remove the old promotional side card from page headers */
+.page-hero-panel {
+  display: none;
+}
+
+.page-hero-grid {
+  grid-template-columns: minmax(0, 840px);
+  justify-content: center;
+  text-align: center;
+}
+
+.page-hero-grid .lead {
+  margin-inline: auto;
+}
+/* Professional screenshots carousel */
+.screenshot-slider {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 52px;
+  align-items: center;
+  gap: 16px;
+}
+
+.screenshot-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 32px) / 3);
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 2px 18px;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+}
+
+.screenshot-track::-webkit-scrollbar {
+  display: none;
+}
+
+.screen-card {
+  min-height: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+  scroll-snap-align: center;
+  background: #101c34;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+}
+
+.screen-card::before {
+  display: none;
+}
+
+.screen-image {
+  position: static;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 14px;
+  background: #07131f;
+}
+
+.screen-copy {
+  min-height: 132px;
+  margin-top: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+}
+
+.screen-card .screen-copy h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.screen-card .screen-copy p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.screenshot-slider > .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  line-height: 1;
+  font-size: 1.7rem;
+  border-radius: 50%;
+}
+
+@media (max-width: 760px) {
+  .screenshot-slider {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .screenshot-track {
+    grid-auto-columns: 86%;
+    gap: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

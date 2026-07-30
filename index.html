@@ -42,50 +42,13 @@
           <div class="metric-row" id="heroStats" aria-label="مؤشرات قابلة للتعديل"></div>
         </div>
         <div class="hero-visual reveal" aria-label="تصور مبدئي لشاشة التطبيق">
-          <div class="phone-shell">
-            <div class="phone-status">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="live-room-card">
-              <span class="live-pill">LIVE</span>
-              <h2>SOHBETNA | صٌحبتنا</h2>
-              <p>غرفة لايف صوت وفيديو</p>
-              <div class="avatar-stack" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-            <div class="mic-grid" aria-hidden="true">
-              <span class="phone-action">
-                <svg viewBox="0 0 24 24">
-                  <rect x="9" y="3" width="6" height="11" rx="3"></rect>
-                  <path d="M6 11a6 6 0 0 0 12 0M12 17v4M8 21h8"></path>
-                </svg>
-                <strong>Mic 1</strong>
-              </span>
-              <span class="phone-action">
-                <svg viewBox="0 0 24 24">
-                  <rect x="9" y="3" width="6" height="11" rx="3"></rect>
-                  <path d="M6 11a6 6 0 0 0 12 0M12 17v4M8 21h8"></path>
-                </svg>
-                <strong>Mic 2</strong>
-              </span>
-              <span class="phone-action">
-                <svg viewBox="0 0 24 24">
-                  <rect x="3" y="5" width="14" height="14" rx="3"></rect>
-                  <path d="m17 10 4-2v8l-4-2"></path>
-                  <path d="M7 10v4M10 10v4M13 10v4"></path>
-                </svg>
-                <strong>HD</strong>
-              </span>
-              <span class="phone-action">
-                <svg viewBox="0 0 24 24">
-                  <path d="M4 10h16v11H4zM2 6h20v4H2zM12 6v15"></path>
-                  <path d="M12 6H8.5A2.5 2.5 0 1 1 11 3.5ZM12 6h3.5A2.5 2.5 0 1 0 13 3.5Z"></path>
-                </svg>
-                <strong>Gift</strong>
-              </span>
-            </div>
-          </div>
+      <div class="phone-shell">
+         <img
+         class="phone-app-screen"
+         src="assets/images/mockups/sohbetna-app-screen.png"
+         alt="واجهة تطبيق صحبتنا"
+         >
+         </div>
         </div>
       </div>
     </section>
@@ -106,27 +69,25 @@
           <p data-i18n="home.howText">الموقع يشرح رحلة التطبيق المتوقعة، بينما يتم حفظ بيانات الموقع والتواصل في Supabase عند تفعيل الربط.</p>
         </div>
         <div class="steps-list reveal">
-          <article><span>01</span><h3>إنشاء حساب</h3><p>تسجيل بسيط عبر التطبيق عند الإطلاق.</p></article>
-          <article><span>02</span><h3>اختيار غرفة</h3><p>غرف صوتية أو فيديو أو VIP حسب نظام التطبيق.</p></article>
-          <article><span>03</span><h3>الانضمام للمايك</h3><p>مشاركة صوتية أو بث مباشر مع تحكم واضح.</p></article>
-          <article><span>04</span><h3>تكوين صداقات</h3><p>متابعة، رسائل، وهدايا رقمية داخل التطبيق.</p></article>
+          <article><span>01</span><h3>سجل حسابك</h3><p>اسم وصورة، وبعدها أنت جاهز تدخل.</p></article>
+          <article><span>02</span><h3>اختار غرفتك</h3><p>شوف مين موجود واختار القعدة اللي على مزاجك.</p></article>
+          <article><span>03</span><h3>إطلع وأتكلم</h3><p>افتح المايك وشارك، أو اسمع براحتك.</p></article>
+          <article><span>04</span><h3>خلي صحبتك تكبر</h3><p>تابع الناس اللي ارتحت ليهم وارجعوا قابلوا بعض تاني</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-head reveal">
-        <p class="eyebrow" data-i18n="home.roomsEyebrow">الغرف</p>
-        <h2 data-i18n="home.roomsTitle">باقات غرف قابلة للتعديل من لوحة التحكم</h2>
-        <p class="muted" data-i18n="home.roomsNote">الأسعار النهائية وسياسة الدفع تحددها إدارة التطبيق. لا توجد بوابة دفع مفعلة حاليًا.</p>
-      </div>
-      <div class="container pricing-grid" id="roomPackages"></div>
-    </section>
-
     <section class="section muted-section">
-      <div class="container section-head reveal">
-        <p class="eyebrow">Screenshots</p>
-        <h2>أماكن واضحة لصور التطبيق والموبايل</h2>
+      <div class="container section-head screenshots-head reveal">
+        <p class="eyebrow" data-i18n="home.screensEyebrow">من جوه التطبيق</p>
+
+       <h2 data-i18n="home.screensTitle">
+         خد لفة جوه صحبتنا
+      </h2>
+
+        <p class="screenshots-intro" data-i18n="home.screensText">
+       شوف الغرف واللايفات والهدايا وشكل حسابك قبل ما تبدأ.
+       </p>
       </div>
       <div class="container screenshot-slider reveal">
         <button class="icon-btn" data-slider-prev aria-label="السابق">‹</button>
@@ -219,13 +180,6 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container section-head reveal">
-        <p class="eyebrow">FAQ</p>
-        <h2>أسئلة مختصرة</h2>
-      </div>
-      <div class="container accordion" id="faqList" data-limit="4"></div>
-    </section>
   </main>
   <div id="site-footer"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>

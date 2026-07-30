@@ -65,7 +65,11 @@
     const brand = node("a", "brand");
     brand.href = pageHref("index.html");
     brand.setAttribute("aria-label", config.brand?.appName || "SOHBETNA | صٌحبتنا");
-    const mark = node("span", "brand-mark", "S");
+    const mark = node("span", "brand-mark");
+    const markImage = node("img");
+    markImage.src = pageHref("assets/images/brand/sohbetna-mark.png");
+    markImage.alt = "";
+    mark.append(markImage);
     const brandText = node("span", "brand-text");
     const strong = node("strong", "", config.brand?.appName || "SOHBETNA | صٌحبتنا");
     const small = node("small", "", lang === "en" ? config.brand?.taglineEn : config.brand?.taglineAr);
@@ -76,7 +80,7 @@
     navWrap.id = "primary-navigation";
     navWrap.setAttribute("aria-label", lang === "en" ? "Primary navigation" : "التنقل الرئيسي");
     const ul = node("ul", "nav-menu");
-    const navItems = [["index.html","nav.home"],["about.html","nav.about"],["features.html","nav.features"],["rooms.html","nav.rooms"],["download.html","nav.download"],["news.html","nav.news"],["support.html","nav.support"],["contact.html","nav.contact"]];
+    const navItems = [["index.html","nav.home"],["about.html","nav.about"],["features.html","nav.features"],["rooms.html","nav.rooms"],["news.html","nav.news"],["support.html","nav.support"],["contact.html","nav.contact"]];
     navItems.forEach(([href, key]) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
@@ -120,12 +124,12 @@
     const grid = node("div", "footer-grid");
     const brandCol = node("div");
     brandCol.append(node("h2", "", config.brand?.appName || "SOHBETNA | صٌحبتنا"));
-    brandCol.append(node("p", "", lang === "en" ? config.brand?.shortDescriptionEn : config.brand?.shortDescriptionAr));
+    brandCol.append(node("p", "", lang === "en" ? config.brand?.taglineEn : config.brand?.taglineAr));
     grid.append(brandCol);
     const groups = [
       [lang === "en" ? "Site" : "الموقع", [["about.html", t("nav.about")], ["features.html", t("nav.features")], ["rooms.html", t("nav.rooms")], ["news.html", t("nav.news")]]],
       [lang === "en" ? "Support" : "الدعم", [["support.html", t("nav.support")], ["contact.html", t("nav.contact")], ["faq.html", t("nav.faq") || "FAQ"], ["delete-account.html", lang === "en" ? "Delete account" : "طلب حذف الحساب"]]],
-      [lang === "en" ? "Legal" : "القانوني", [["privacy-policy.html", lang === "en" ? "Privacy policy" : "سياسة الخصوصية"], ["terms.html", lang === "en" ? "Terms" : "الشروط"], ["community-guidelines.html", lang === "en" ? "Community guidelines" : "إرشادات المجتمع"], ["safety.html", lang === "en" ? "Safety" : "الأمان"]]]
+      [lang === "en" ? "Trust & Safety" : "الثقة والأمان", [["privacy-policy.html", lang === "en" ? "Privacy policy" : "سياسة الخصوصية"], ["terms.html", lang === "en" ? "Terms" : "الشروط"], ["community-guidelines.html", lang === "en" ? "Community guidelines" : "إرشادات المجتمع"], ["safety.html", lang === "en" ? "Safety" : "الأمان"]]]
     ];
     groups.forEach(([title, links]) => {
       const col = node("div");
@@ -174,18 +178,35 @@
       return box;
     }));
   }
+ const featureIcons = {
+  "صوت": `<svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>`,
+  "Live": `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.48"/><path d="M7.76 16.24a6 6 0 0 1 0-8.48"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>`,
+  "HD": `<svg viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="4" rx="2"/><path d="m10 9 5 3-5 3Z"/><path d="M8 20h8"/></svg>`,
+  "Mic": `<svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M5 10v2a7 7 0 0 0 14 0v-2"/><path d="M8 22h8"/><path d="M12 19v3"/></svg>`,
+  "Gift": `<svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13"/><path d="M3 12h18"/><path d="M7.5 8a2.5 2.5 0 1 1 4.5-1.5V8"/><path d="M16.5 8A2.5 2.5 0 1 0 12 6.5V8"/></svg>`,
+  "VIP": `<svg viewBox="0 0 24 24"><path d="m2 6 5 4 5-7 5 7 5-4-2 13H4Z"/><path d="M5 22h14"/></svg>`,
+  "أمان": `<svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3Z"/><path d="m9 12 2 2 4-4"/></svg>`,
+  "Follow": `<svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-2a7 7 0 0 1 7-7 7 7 0 0 1 4 1.3"/><path d="M16 19h6"/><path d="M19 16v6"/></svg>`
+};
 
-  function renderFeatures() {
-    document.querySelectorAll("#featureGrid").forEach((mount) => {
-      mount.replaceChildren(...(config.features || []).map((item) => {
-        const card = node("article", "feature-card reveal");
-        card.append(node("span", "feature-icon", item.icon));
-        card.append(node("h3", "", localized(item, "titleAr", "titleEn")));
-        card.append(node("p", "", localized(item, "textAr", "textEn")));
-        return card;
-      }));
-    });
-  }
+function createFeatureIcon(name) {
+  const wrapper = node("span", "feature-icon");
+  wrapper.innerHTML = featureIcons[name] || featureIcons["صوت"];
+  wrapper.setAttribute("aria-hidden", "true");
+  return wrapper;
+}
+
+function renderFeatures() {
+  document.querySelectorAll("#featureGrid").forEach((mount) => {
+    mount.replaceChildren(...(config.features || []).map((item) => {
+      const card = node("article", "feature-card reveal");
+      card.append(createFeatureIcon(item.icon));
+      card.append(node("h3", "", localized(item, "titleAr", "titleEn")));
+      card.append(node("p", "", localized(item, "textAr", "textEn")));
+      return card;
+    }));
+  });
+}
 
   function renderRoomPackages(packages) {
     document.querySelectorAll("#roomPackages").forEach((mount) => {
@@ -221,8 +242,10 @@
         img.loading = "lazy";
         card.append(img);
       }
-      card.append(node("h3", "", localized(item, "titleAr", "titleEn")));
-      card.append(node("p", "", localized(item, "textAr", "textEn")));
+       const copy = node("div", "screen-copy");
+       copy.append(node("h3", "", localized(item, "titleAr", "titleEn")));
+       copy.append(node("p", "", localized(item, "textAr", "textEn")));
+       card.append(copy);
       return card;
     }));
   }
