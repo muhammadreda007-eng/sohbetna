@@ -38,26 +38,59 @@
         </div>
         <div class="page-hero-panel reveal">
           <span class="signal-dot"></span>
-          <strong data-i18n="common.siteScope">موقع دعائي وإداري</strong>
-          <p data-i18n="common.siteScopeText">هذا الموقع منفصل عن Backend تطبيق الشات واللايف المستقبلي.</p>
+          <strong data-i18n="common.siteScope">موقع البرنامج</strong>
+          <p data-i18n="common.siteScopeText">هذا الموقع دعائي للبرنامج وبه كل ما يحتاجه المستخدم من معلومات.</p>
         </div>
       </div>
     </section>
-    <section class="section"><div class="container split-grid"><div class="content-block reveal"><h2>قبل إرسال الطلب</h2><ul class="checked-list"><li>اكتب البريد أو اسم المستخدم المرتبط بالحساب.</li>
-<li>لا ترسل كلمة المرور.</li>
-<li>سيتم التواصل معك على بريد التأكيد بعد مراجعة الطلب.</li></ul></div><div class="reveal"><form class="form-panel" data-form="delete-account" novalidate><label class="hp-field" aria-hidden="true">
-            <span>اترك هذا الحقل فارغًا</span>
-            <input type="text" name="hp_token" tabindex="-1" autocomplete="new-password">
-          </label><input type="hidden" name="started_at" value=""><div class="form-grid"><label class="field">
-            <span>اسم المستخدم أو البريد</span>
+<section class="section">
+  <div class="container split-grid">
+    <div class="content-block reveal">
+      <h2 data-i18n="support.beforeTitle">قبل إرسال الطلب</h2>
+      <ul class="checked-list">
+        <li data-i18n="deleteAccount.accountTip">اكتب البريد أو اسم المستخدم المرتبط بالحساب.</li>
+        <li data-i18n="deleteAccount.passwordTip">لا ترسل كلمة المرور.</li>
+        <li data-i18n="deleteAccount.followupTip">سيتم التواصل معك على بريد التواصل بعد مراجعة الطلب.</li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <form class="form-panel" data-form="delete-account" novalidate>
+        <label class="hp-field" aria-hidden="true">
+          <span>اترك هذا الحقل فارغًا</span>
+          <input type="text" name="hp_token" tabindex="-1" autocomplete="new-password">
+        </label>
+        <input type="hidden" name="started_at" value="">
+
+        <div class="form-grid">
+          <label class="field">
+            <span data-i18n="deleteAccount.identifier">اسم المستخدم أو البريد</span>
             <input name="username_or_email" type="text" required>
-          </label><label class="field">
-            <span>بريد التواصل</span>
+          </label>
+
+          <label class="field">
+            <span data-i18n="deleteAccount.contactEmail">بريد التواصل</span>
             <input name="contact_email" type="email" required>
-          </label><label class="field field-full">
-            <span>سبب الحذف اختياري</span>
-            <textarea name="reason" rows="5" ></textarea>
-          </label><label class="check-row field-full"><input type="checkbox" name="confirmation" required><span>أؤكد أنني أطلب حذف الحساب أو البيانات المرتبطة به.</span></label></div><button class="btn btn-primary" type="submit">إرسال طلب الحذف</button><p class="form-alert" data-form-alert role="status" aria-live="polite"></p></form></div></div></section>
+          </label>
+
+          <label class="field field-full">
+            <span data-i18n="deleteAccount.reason">سبب الحذف اختياري</span>
+            <textarea name="reason" rows="5"></textarea>
+          </label>
+
+          <label class="check-row field-full">
+            <input type="checkbox" name="confirmation" required>
+            <span data-i18n="deleteAccount.confirmation">أؤكد أنني أطلب حذف الحساب أو البيانات المرتبطة به.</span>
+          </label>
+        </div>
+
+        <button class="btn btn-primary" type="submit"
+          data-i18n="deleteAccount.submit">إرسال طلب الحذف</button>
+        <p class="form-alert" data-form-alert role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
   </main>
   <div id="site-footer"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>

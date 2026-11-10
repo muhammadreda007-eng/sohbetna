@@ -2,6 +2,11 @@
   "use strict";
 
   const lang = () => localStorage.getItem("app_lang") || "ar";
+  function newsText(key) {
+  const language = lang() === "en" ? "en" : "ar";
+  const translations = window.AppTranslations || {};
+  return translations[language]?.[key] || translations.ar?.[key] || key;
+}
 
   function textFor(item, ar, en) {
     return lang() === "en" ? item[en] || item[ar] : item[ar] || item[en];
@@ -40,58 +45,83 @@
     return card;
   }
 
-  async function loadList() {
-    const mounts = [...document.querySelectorAll("#newsList, #latestNews")];
-    if (!mounts.length || !window.AppApi) return;
-    for (const mount of mounts) {
-      const limit = Number(mount.dataset.limit || 0);
-      try {
-        const data = await window.AppApi.fetchPublishedNews(limit);
-        if (!data.length) {
-          mount.replaceChildren(el("p", "empty-state", "لا توجد أخبار منشورة بعد. ستظهر الأخبار هنا بعد إضافتها من لوحة التحكم."));
-          continue;
-        }
-        mount.replaceChildren(...data.map(renderNewsCard));
-      } catch (_) {
-        mount.replaceChildren(el("p", "empty-state", "تعذر تحميل الأخبار الآن. راجع إعدادات Supabase."));
+async function loadList() {
+  const mounts = [...document.querySelectorAll("#newsList, #latestNews")];
+  if (!mounts.length || !window.AppApi) return;
+
+  for (const mount of mounts) {
+    const limit = Number(mount.dataset.limit || 0);
+
+    try {
+      const data = await window.AppApi.fetchPublishedNews(limit);
+
+      if (!data.length) {
+        mount.replaceChildren(
+          el("p", "empty-state", newsText("news.empty"))
+        );
+        continue;
       }
+
+      mount.replaceChildren(...data.map(renderNewsCard));
+    } catch (_) {
+      mount.replaceChildren(
+        el("p", "empty-state", newsText("news.loadError"))
+      );
     }
   }
+}
+async function loadDetails() {
+  const mount = document.getElementById("newsDetails");
+  if (!mount || !window.AppApi) return;
 
-  async function loadDetails() {
-    const mount = document.getElementById("newsDetails");
-    if (!mount || !window.AppApi) return;
-    const slug = new URLSearchParams(location.search).get("slug");
-    if (!slug) {
-      mount.replaceChildren(el("p", "empty-state", "لم يتم تحديد الخبر المطلوب."));
+  const slug = new URLSearchParams(location.search).get("slug");
+  if (!slug) {
+    mount.replaceChildren(
+      el("p", "empty-state", newsText("newsDetails.missing"))
+    );
+    return;
+  }
+
+  try {
+    const item = await window.AppApi.fetchNewsBySlug(slug);
+    if (!item) {
+      mount.replaceChildren(
+        el("p", "empty-state", newsText("newsDetails.notFound"))
+      );
       return;
     }
-    try {
-      const item = await window.AppApi.fetchNewsBySlug(slug);
-      if (!item) {
-        mount.replaceChildren(el("p", "empty-state", "الخبر غير موجود أو غير منشور."));
-        return;
-      }
-      const title = el("h1", "", textFor(item, "title_ar", "title_en"));
-      const meta = el("p", "article-meta", dateText(item.published_at));
-      const content = el("div", "article-content");
-      String(textFor(item, "content_ar", "content_en") || "").split(/\n+/).filter(Boolean).forEach((para) => content.append(el("p", "", para)));
-      const nodes = [title, meta];
-      if (item.cover_image_url) {
-        const image = el("img", "article-cover");
-        image.src = item.cover_image_url;
-        image.alt = title.textContent || "";
-        image.loading = "eager";
-        nodes.push(image);
-      }
-      nodes.push(content);
-      mount.replaceChildren(...nodes);
-      document.title = title.textContent + " | SOHBETNA | صٌحبتنا";
-    } catch (_) {
-      mount.replaceChildren(el("p", "empty-state", "تعذر تحميل تفاصيل الخبر."));
-    }
-  }
 
+    const title = el("h1", "", textFor(item, "title_ar", "title_en"));
+    const meta = el("p", "article-meta", dateText(item.published_at));
+    const content = el("div", "article-content");
+
+    String(textFor(item, "content_ar", "content_en") || "")
+      .split(/\n+/)
+      .filter(Boolean)
+      .forEach((para) => content.append(el("p", "", para)));
+
+    const nodes = [title, meta];
+    if (item.cover_image_url) {
+      const image = el("img", "article-cover");
+      image.src = item.cover_image_url;
+      image.alt = title.textContent || "";
+      image.loading = "eager";
+      nodes.push(image);
+    }
+
+    nodes.push(content);
+    mount.replaceChildren(...nodes);
+    document.title = title.textContent + " | SOHBETNA | صٌحبتنا";
+  } catch (_) {
+    mount.replaceChildren(
+      el("p", "empty-state", newsText("newsDetails.loadError"))
+    );
+  }
+}
+  document.addEventListener("app:language-changed", async () => {
+  await Promise.all([loadList(), loadDetails()]);
+  document.getElementById("newsSearch")?.dispatchEvent(new Event("input"));
+});
   document.addEventListener("DOMContentLoaded", () => {
     loadList();
     loadDetails();

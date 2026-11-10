@@ -27,22 +27,37 @@
   <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body data-page="admin" data-admin-page="login" data-prefix="../" >
-  <a class="skip-link" href="#main-content">تجاوز إلى المحتوى</a>
+<a class="skip-link" href="#main-content" data-i18n="common.skip">تجاوز إلى المحتوى</a>
   <div id="site-header"></div>
   <main id="main-content" class="admin-main">
-    <section class="admin-login-section">
-      <div class="admin-login-card">
-        <p class="eyebrow">Admin</p>
-        <h1>تسجيل دخول الإدارة</h1>
-        <p>دخول للإداريين</p>
-        <form class="form-panel" data-login-form novalidate>
-          <label class="field"><span>Email</span><input name="email" type="email" required dir="ltr" autocomplete="email"></label>
-          <label class="field password-field"><span>Password</span><input name="password" type="password" required autocomplete="current-password"><button type="button" class="ghost-toggle" data-toggle-password>إظهار</button></label>
-          <button class="btn btn-primary" type="submit">دخول</button>
-          <p class="form-alert" data-auth-alert role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
+<section class="admin-login-section">
+  <div class="admin-login-card">
+    <p class="eyebrow" data-i18n="nav.admin">الإدارة</p>
+    <h1 data-i18n="auth.title">تسجيل دخول الإدارة</h1>
+    <p data-i18n="auth.lead">دخول للإداريين</p>
+
+    <form class="form-panel" data-login-form novalidate>
+      <label class="field">
+        <span data-i18n="form.email">البريد الإلكتروني</span>
+        <input name="email" type="email" required dir="ltr"
+          autocomplete="email">
+      </label>
+
+      <label class="field password-field">
+        <span data-i18n="auth.password">كلمة المرور</span>
+        <input name="password" type="password" required
+          autocomplete="current-password">
+        <button type="button" class="ghost-toggle"
+          data-toggle-password data-i18n="auth.show">إظهار</button>
+      </label>
+
+      <button class="btn btn-primary" type="submit"
+        data-i18n="auth.login">دخول</button>
+      <p class="form-alert" data-auth-alert
+        role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
   </main>
   <div id="site-footer"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>

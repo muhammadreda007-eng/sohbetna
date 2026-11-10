@@ -115,7 +115,7 @@ features: [
    
     ],
     faqs: [
-      { questionAr: "هل الموقع هو تطبيق الشات نفسه؟", questionEn: "Is this the chat app itself?", answerAr: "لا. هذا موقع دعائي وإداري، أما تطبيق الشات واللايف فسيكون له Backend مستقل مستقبلًا.", answerEn: "No. This is a marketing and admin website; the chat/live app will have a separate backend later." },
+      { questionAr: "هل الموقع هو تطبيق الشات نفسه؟", questionEn: "Is this the chat app itself?", answerAr: "لا. هذا موقع البرنامج، وبه كل ما يحتاجه المستخدم من معلومات عن التطبيق.", answerEn: "No. This is the app website, which introduces the app and provides all the information users need." },
       { questionAr: "هل يمكن تعديل الاسم والروابط؟", questionEn: "Can I change the name and links?", answerAr: "نعم، من assets/js/config.js ثم من لوحة التحكم بعد ربط Supabase.", answerEn: "Yes. Start with assets/js/config.js, then use the admin dashboard after Supabase is connected." },
       { questionAr: "هل توجد مفاتيح سرية داخل الموقع؟", questionEn: "Are there secret keys in the site?", answerAr: "لا. الواجهة تستخدم Supabase URL وAnon Key فقط عند التفعيل، ولا تستخدم Service Role Key.", answerEn: "No. The frontend only uses Supabase URL and Anon Key when enabled, never the Service Role Key." },
       { questionAr: "متى تعمل النماذج فعليًا؟", questionEn: "When do the forms save data?", answerAr: "بعد إنشاء مشروع Supabase وتشغيل ملفات SQL وإضافة URL وAnon Key في الإعدادات.", answerEn: "After creating Supabase, running the SQL files, and adding URL and Anon Key to the config." }

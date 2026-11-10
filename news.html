@@ -38,12 +38,20 @@
         </div>
         <div class="page-hero-panel reveal">
           <span class="signal-dot"></span>
-          <strong data-i18n="common.siteScope">موقع دعائي وإداري</strong>
-          <p data-i18n="common.siteScopeText">هذا الموقع منفصل عن Backend تطبيق الشات واللايف المستقبلي.</p>
+          <strong data-i18n="common.siteScope">موقع البرنامج</strong>
+          <p data-i18n="common.siteScopeText">هذا الموقع دعائي للبرنامج وبه كل ما يحتاجه المستخدم من معلومات.</p>
         </div>
       </div>
     </section>
-    <section class="section"><div class="container toolbar reveal"><input class="search-input" id="newsSearch" type="search" placeholder="ابحث في الأخبار" aria-label="ابحث في الأخبار"></div><div class="container news-grid" id="newsList"></div></section>
+    <section class="section">
+  <div class="container toolbar reveal">
+    <input class="search-input" id="newsSearch" type="search"
+      data-i18n-placeholder="news.search"
+      data-i18n-aria-label="news.search"
+      placeholder="ابحث في الأخبار" aria-label="ابحث في الأخبار">
+  </div>
+  <div class="container news-grid" id="newsList"></div>
+</section>
   </main>
   <div id="site-footer"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>

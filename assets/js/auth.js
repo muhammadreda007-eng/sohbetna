@@ -1,6 +1,10 @@
 (function () {
   "use strict";
-
+  function authText(key) {
+  const lang = document.documentElement.lang === "en" ? "en" : "ar";
+  const translations = window.AppTranslations || {};
+  return translations[lang]?.[key] || translations.ar?.[key] || key;
+}
   function authAlert(message, type = "error") {
     document.querySelectorAll("[data-auth-alert]").forEach((el) => {
       el.textContent = message;
@@ -20,8 +24,9 @@
       document.body.classList.add("admin-locked");
       document.querySelectorAll("[data-admin-setup]").forEach((el) => {
         el.hidden = false;
-        el.textContent = "لوحة الإدارة مقفلة إلى أن يتم ربط Supabase وتشغيل schema.sql وإضافة مستخدم إداري.";
-      });
+        el.dataset.i18n = "auth.locked";
+        el.textContent = authText("auth.locked");
+});
       return false;
     }
     const sb = window.AppSupabase.getClient();
@@ -39,37 +44,41 @@
     document.dispatchEvent(new CustomEvent("app:admin-ready"));
     return true;
   }
-
-  async function login(form) {
-    if (!window.AppSupabase.isConfigured()) {
-      authAlert("أضف إعدادات Supabase أولًا حتى يعمل تسجيل الدخول.", "warning");
-      return;
-    }
-    const button = form.querySelector("button[type='submit']");
-    button.disabled = true;
-    button.textContent = "جار التحقق...";
-    try {
-      const sb = window.AppSupabase.getClient();
-      const { error } = await sb.auth.signInWithPassword({
-        email: form.elements.email.value.trim(),
-        password: form.elements.password.value
-      });
-      if (error) throw error;
-      if (!(await isAdminUser(sb))) {
-        await sb.auth.signOut();
-        authAlert("هذا المستخدم غير مفعّل كإدارة.");
-        return;
-      }
-      location.href = "dashboard.html";
-    } catch (_) {
-      authAlert("بيانات الدخول غير صحيحة أو المستخدم غير مصرح له.");
-    } finally {
-      button.disabled = false;
-      button.textContent = "دخول";
-    }
+async function login(form) {
+  if (!window.AppSupabase.isConfigured()) {
+    authAlert(authText("auth.unavailable"), "warning");
+    return;
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  const button = form.querySelector("button[type='submit']");
+  button.disabled = true;
+  button.dataset.i18n = "auth.checking";
+  button.textContent = authText("auth.checking");
+
+  try {
+    const sb = window.AppSupabase.getClient();
+    const { error } = await sb.auth.signInWithPassword({
+      email: form.elements.email.value.trim(),
+      password: form.elements.password.value
+    });
+    if (error) throw error;
+
+    if (!(await isAdminUser(sb))) {
+      await sb.auth.signOut();
+      authAlert(authText("auth.denied"));
+      return;
+    }
+
+    location.href = "dashboard.html";
+  } catch (_) {
+    authAlert(authText("auth.error"));
+  } finally {
+    button.disabled = false;
+    button.dataset.i18n = "auth.login";
+    button.textContent = authText("auth.login");
+  }
+}
+    document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("[data-login-form]")?.addEventListener("submit", (event) => {
       event.preventDefault();
       login(event.currentTarget);
@@ -78,7 +87,8 @@
       const input = document.querySelector("input[name='password']");
       const show = input.type === "password";
       input.type = show ? "text" : "password";
-      event.currentTarget.textContent = show ? "إخفاء" : "إظهار";
+      event.currentTarget.dataset.i18n = show ? "auth.hide" : "auth.show";
+      event.currentTarget.textContent = authText(event.currentTarget.dataset.i18n);
     });
     document.querySelectorAll("[data-logout]").forEach((button) => {
       button.addEventListener("click", async () => {

@@ -33,53 +33,70 @@
       <div class="container page-hero-grid">
         <div class="reveal">
           <p class="eyebrow">SOHBETNA | صٌحبتنا</p>
-          <h1 data-i18n="waitlist.title">قائمة الانتظار</h1>
-          <p class="lead" data-i18n="waitlist.lead">اجمع المستخدمين المهتمين بالتطبيق قبل الإطلاق الرسمي.</p>
+          <h1 data-i18n="home.waitlistTitle">كون من أوائل الناس في صحبتنا</h1>
+          <p class="lead" data-i18n="home.waitlistText">سجّل بياناتك دلوقتي، وخليك من أول ناس تدخل صحبتنا وتجربها قبل الإطلاق للجميع.</p>
         </div>
         <div class="page-hero-panel reveal">
           <span class="signal-dot"></span>
-          <strong data-i18n="common.siteScope">موقع دعائي وإداري</strong>
-          <p data-i18n="common.siteScopeText">هذا الموقع منفصل عن Backend تطبيق الشات واللايف المستقبلي.</p>
+          <strong data-i18n="common.siteScope">موقع البرنامج</strong>
+          <p data-i18n="common.siteScopeText">هذا الموقع دعائي للبرنامج وبه كل ما يحتاجه المستخدم من معلومات.</p>
         </div>
       </div>
     </section>
-    <section class="section"><div class="container split-grid"><div class="content-block reveal"><h2>لماذا ننضم؟</h2><ul class="checked-list"><li>الحصول على تحديثات الإطلاق.</li>
-<li>اختيار النظام المفضل Android أو iOS.</li>
-<li>مساعدة الفريق على فهم حجم الطلب قبل النشر.</li></ul></div><div class="reveal"><form class="form-panel " data-form="waitlist" novalidate>
-          <label class="hp-field" aria-hidden="true">
-            <span>اترك هذا الحقل فارغًا</span>
-            <input type="text" name="hp_token" tabindex="-1" autocomplete="new-password">
-          </label>
-          <input type="hidden" name="started_at" value="">
-          <div class="form-grid">
-            <label class="field">
-            <span>الاسم</span>
+<section class="section">
+  <div class="container split-grid">
+    <div class="content-block reveal">
+      <h2 data-i18n="waitlist.whyTitle">ليه تنضم؟</h2>
+      <ul class="checked-list">
+        <li data-i18n="waitlist.benefit1">توصلك أخبار الإطلاق.</li>
+        <li data-i18n="waitlist.benefit2">تختار نظامك المفضل: Android أو iOS.</li>
+        <li data-i18n="waitlist.benefit3">تساعدنا نعرف اهتمامكم بالتطبيق قبل الإطلاق.</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <form class="form-panel" data-form="waitlist" novalidate>
+        <label class="hp-field" aria-hidden="true">
+          <span>اترك هذا الحقل فارغًا</span>
+          <input type="text" name="hp_token" tabindex="-1" autocomplete="new-password">
+        </label>
+        <input type="hidden" name="started_at" value="">
+        <div class="form-grid">
+          <label class="field">
+            <span data-i18n="form.fullName">الاسم</span>
             <input name="full_name" type="text" required minlength="2">
           </label>
-            <label class="field">
-            <span>البريد الإلكتروني</span>
+          <label class="field">
+            <span data-i18n="form.email">البريد الإلكتروني</span>
             <input name="email" type="email" required>
           </label>
-            <label class="field">
-            <span>رقم الهاتف</span>
-            <input name="phone" type="tel" dir="ltr" inputmode="tel" autocomplete="tel" required pattern="\+[1-9][0-9]{7,14}" placeholder="+201234567890" title="اكتب الرقم بصيغة دولية تبدأ بعلامة + وكود الدولة">
+          <label class="field">
+            <span data-i18n="form.phone">رقم الهاتف</span>
+            <input name="phone" type="tel" dir="ltr" inputmode="tel"
+              autocomplete="tel" required pattern="\+[1-9][0-9]{7,14}"
+              placeholder="+201234567890"
+              data-i18n-title="form.phoneHint"
+              title="اكتب الرقم بصيغة دولية تبدأ بعلامة + وكود الدولة">
           </label>
-            <label class="field">
-              <span>نظام التشغيل</span>
-              <select name="platform" required>
-                <option value="">اختر النظام</option>
-                <option value="android">Android</option>
-                <option value="ios">iOS</option>
-              </select>
-            </label>
-            <label class="check-row field-full">
-              <input type="checkbox" name="consent" required>
-              <span>أوافق على سياسة الخصوصية واستقبال تحديثات الإطلاق.</span>
-            </label>
-          </div>
-          <button class="btn btn-primary" type="submit">انضم لقائمة الانتظار</button>
-          <p class="form-alert" data-form-alert role="status" aria-live="polite"></p>
-        </form></div></div></section>
+          <label class="field">
+            <span data-i18n="form.platform">نظام التشغيل</span>
+            <select name="platform" required>
+              <option value="" data-i18n="form.choosePlatform">اختر النظام</option>
+              <option value="android">Android</option>
+              <option value="ios">iOS</option>
+            </select>
+          </label>
+          <label class="check-row field-full">
+            <input type="checkbox" name="consent" required>
+            <span data-i18n="form.launchConsent">أوافق على سياسة الخصوصية واستقبال تحديثات الإطلاق.</span>
+          </label>
+        </div>
+        <button class="btn btn-primary" type="submit"
+          data-i18n="home.waitlistSubmit">أنا جاهز</button>
+        <p class="form-alert" data-form-alert role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
   </main>
   <div id="site-footer"></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>

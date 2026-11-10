@@ -161,6 +161,16 @@
       const value = t(el.dataset.i18n).replaceAll(defaultBrandName, config.brand?.appName || defaultBrandName);
       el.textContent = value;
     });
+    [
+  ["data-i18n-title", "title"],
+  ["data-i18n-placeholder", "placeholder"],
+  ["data-i18n-aria-label", "aria-label"],
+  ["data-i18n-alt", "alt"]
+].forEach(([marker, attribute]) => {
+  document.querySelectorAll(`[${marker}]`).forEach((el) => {
+    el.setAttribute(attribute, t(el.getAttribute(marker)));
+  });
+});
     document.querySelectorAll("[data-app-status]").forEach((el) => {
       el.textContent = config.brand?.appStatus === "available" ? (lang === "en" ? "Available now" : "متاح الآن") : (lang === "en" ? "Coming soon" : "قريبًا");
     });
@@ -305,11 +315,14 @@ function renderFeatures() {
       navWrap?.classList.toggle("is-open", open);
       body.classList.toggle("menu-open", open);
     });
-    langToggle?.addEventListener("click", () => {
+    
+      langToggle?.addEventListener("click", async () => {
       lang = lang === "ar" ? "en" : "ar";
       localStorage.setItem("app_lang", lang);
-      bootstrap();
+      await bootstrap({ refreshSettings: false });
+      document.dispatchEvent(new Event("app:language-changed"));
     });
+
     document.querySelector("[data-slider-prev]")?.addEventListener("click", () => document.getElementById("screenshotTrack")?.scrollBy({ left: document.documentElement.dir === "rtl" ? 260 : -260, behavior: "smooth" }));
     document.querySelector("[data-slider-next]")?.addEventListener("click", () => document.getElementById("screenshotTrack")?.scrollBy({ left: document.documentElement.dir === "rtl" ? -260 : 260, behavior: "smooth" }));
     const observer = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
@@ -338,8 +351,8 @@ function renderFeatures() {
     }
   }
 
-  async function bootstrap() {
-    await hydratePublicSettings();
+  async function bootstrap({ refreshSettings = true } = {}) {
+  if (refreshSettings) await hydratePublicSettings();
     renderHeader();
     renderFooter();
     applyTranslations();
@@ -352,6 +365,6 @@ function renderFeatures() {
     setupInteractions();
     hydrateFromSupabase();
   }
-
+   
   document.addEventListener("DOMContentLoaded", bootstrap);
 })();

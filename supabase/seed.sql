@@ -42,7 +42,7 @@ on conflict (platform) do update set url = excluded.url, is_active = excluded.is
 
 insert into public.faqs (question_ar, question_en, answer_ar, answer_en, is_active, sort_order)
 values
-  ('هل الموقع هو تطبيق الشات نفسه؟', 'Is this the chat app itself?', 'لا. هذا موقع دعائي وإداري، أما تطبيق الشات واللايف فسيكون له Backend مستقل مستقبلًا.', 'No. This is a marketing and admin website; the chat/live app will have a separate backend later.', true, 1),
+  ('هل الموقع هو تطبيق الشات نفسه؟', 'Is this the chat app itself?', 'لا. هذا موقع البرنامج، وبه كل ما يحتاجه المستخدم من معلومات عن التطبيق.', 'No. This is the app website, which introduces the app and provides all the information users need.', true, 1),
   ('هل يمكن تعديل الاسم والروابط؟', 'Can I change the name and links?', 'نعم، من assets/js/config.js ثم من لوحة التحكم بعد ربط Supabase.', 'Yes. Start with assets/js/config.js, then use the dashboard after Supabase is connected.', true, 2),
   ('هل توجد مفاتيح سرية داخل الموقع؟', 'Are there secret keys in the site?', 'لا. الواجهة تستخدم Supabase URL وAnon Key فقط عند التفعيل، ولا تستخدم Service Role Key.', 'No. The frontend only uses Supabase URL and Anon Key when enabled, never the Service Role Key.', true, 3),
   ('متى تعمل النماذج فعليًا؟', 'When do forms save data?', 'بعد إنشاء مشروع Supabase وتشغيل ملفات SQL وإضافة URL وAnon Key في الإعدادات.', 'After creating Supabase, running SQL files, and adding URL and Anon Key.', true, 4)
